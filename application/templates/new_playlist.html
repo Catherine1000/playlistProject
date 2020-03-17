@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<h1>Create a new playlist!</h1>
+<div class="form">
+    <form method='POST' action=''>
+        {{ form.hidden_tag() }}
+        <div class="form-group">    
+            {{ form.title.label }}
+            {{ form.title }}
+            {% if form.title.errors %}
+                <div class="error">
+                    {% for error in form.title.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div> 
+        <br>
+            
+            {{ form.genre.label }}
+            {{ form.genre }}
+            {% if form.genre.errors %}
+                <div class="error">
+                    {% for error in form.genre.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {{ form.submit }}
+
+    </form>
+</div>
+
+{% endblock body_content %}

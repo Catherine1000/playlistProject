@@ -1,5 +1,21 @@
 {% extends "layout.html" %}
 {% block body_content %}
 <h1>{{ title }}</h1>
+{% if playlists %}
+    <!-- for every post in the posts list -->
+    {% for playlist in playlists %}
+        <!-- display properties from the post -->
+        <p>Title: {{ playlists.title }}</p>
+        <p>Genre: {{ playlists.genre }}</p>
+    <!-- end the for-loop -->
+    {% endfor %}
+<!-- otherwise... -->
+{% else %}
+    <!-- display a message indicating that there are no posts --> 
+    <p>There are no playlists to display</p>
+<!-- end the 'if' statement -->
+{% endif %}
+
+<input type=button onClick=location.href="{{ url_for('newplaylist') }}" value='Create a new playlist'>
 
 {% endblock body_content %}
