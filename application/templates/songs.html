@@ -2,19 +2,14 @@
 
 {% block body_content %}
 <h1>{{ title }}</h1>
-{% if songs %}
-    {% for song in songs %}
+{% if songData %}
+    {% for song in songData %}
         <div>
-            <p>Title: {{ song.title }}</p>
-            <p>Artist: {{ song.artist }}</p>
-            <p>Album: {{ song.album }}</p>
+            <p>Title: {{ song.title }} Artist: {{ song.artist }}  Album: {{ song.album }}</p>
         </div>
     {% endfor %}
-
 {% else %}
-
     <p>There are no songs to display</p>
-
 {% endif %}
 
 <input type=button onClick=location.href="{{ url_for('newsong') }}" value='Add a new song'>

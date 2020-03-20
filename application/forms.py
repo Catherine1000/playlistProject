@@ -23,6 +23,7 @@ class NewSongForm(FlaskForm):
     )
     
     submit = SubmitField('Done')
+    
 
 class NewPlaylistForm(FlaskForm):
     title = StringField('Title',
@@ -37,5 +38,6 @@ class NewPlaylistForm(FlaskForm):
             Length(min=2, max=30)
         ]
     )
+    
+    submit = SubmitField('Submit Playlist')
 
-    submit = SubmitField('Done')

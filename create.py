@@ -1,5 +1,5 @@
 from application import db
-from application.models import Songs, Playlists
+from application.models import Songs, Playlists, playlistTracks
 
 db.drop_all()
 db.create_all()

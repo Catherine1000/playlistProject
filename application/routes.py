@@ -1,23 +1,22 @@
 from flask import render_template, redirect, url_for
 from application import app, db
-from application.models import Songs, Playlists
+from application.models import Songs, Playlists, playlistTracks
 from application.forms import NewSongForm, NewPlaylistForm
 
 @app.route('/')
 @app.route('/home')
 def home():
-    
     return render_template('home.html', title='Home')
-
 
 @app.route('/songs')
 def songs():
     songData = Songs.query.all()
-    return render_template('songs.html', title='Songs', song=songData)
+    return render_template('songs.html', title='Songs', songData=songData)
 
 @app.route('/playlists')
 def playlists():
-    return render_template('playlists.html', title='Playlists')
+    playlistData = Playlists.query.all()
+    return render_template('playlists.html', title='Playlists', playlist=playlistData)
 
 @app.route('/newsong', methods=['GET','POST'])
 def newsong():
@@ -42,6 +41,7 @@ def newsong():
 @app.route('/newplaylist', methods=['GET','POST'])
 def newplaylist():
     form = NewPlaylistForm()
+    
     if form.validate_on_submit():
         playlist = Playlists(
             title = form.title.data,
@@ -51,9 +51,13 @@ def newplaylist():
         db.session.add(playlist)
         db.session.commit()
 
+    
+    
         return redirect(url_for('playlists'))
-        
+
     else:
         print(form.errors)
 
     return render_template('new_playlist.html', title='New Playlist', form=form)
+
+
