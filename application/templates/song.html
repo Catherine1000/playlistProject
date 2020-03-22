@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+{% if song %}
+        <p>Title: {{ song.title }} Artist: {{ song.artist }}  Album: {{ song.album }}</p>
+        <div>
+            <form action="{{ url_for('update_song', song_id=song.song_id) }}">
+                <button type="submit">Update</button>
+            </form>
+        </div>
+{% else %}
+    <p>There are no songs to display</p>
+{% endif %}
+
+{% endblock body_content %}

@@ -5,7 +5,7 @@
 {% if songData %}
     {% for song in songData %}
         <div>
-            <p>Title: {{ song.title }} Artist: {{ song.artist }}  Album: {{ song.album }}</p>
+            <p>Title:<a href="{{ url_for('song', song_id=song.song_id) }}">{{ song.title }}</a> Artist: {{ song.artist }}  Album: {{ song.album }}</p>
         </div>
     {% endfor %}
 {% else %}

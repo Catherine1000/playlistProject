@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, ValidationError
 
 class NewSongForm(FlaskForm):
@@ -12,13 +12,13 @@ class NewSongForm(FlaskForm):
     artist = StringField('Artist',
         validators = [
             DataRequired(),
-            Length(min=2, max=30)
+            Length(min=2, max=50)
         ]
     )
     album = StringField('Album',
         validators = [
             DataRequired(),
-            Length(min=2, max=30)
+            Length(min=2, max=50)
         ]
     )
     
@@ -38,6 +38,8 @@ class NewPlaylistForm(FlaskForm):
             Length(min=2, max=30)
         ]
     )
+    song = SelectField('Song', coerce=int)
     
     submit = SubmitField('Submit Playlist')
+
 

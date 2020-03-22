@@ -26,6 +26,16 @@
                     {% endfor %}
                 </div>
             {% endif %}
+        <br>
+            {{ form.song.label }}
+            {{ form.song }}
+            {% if form.song.errors %}
+                <div class="error">
+                    {% for error in form.song.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
     {{ form.submit }}
 

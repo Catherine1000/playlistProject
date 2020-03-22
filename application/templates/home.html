@@ -1,6 +1,16 @@
 {% extends "layout.html" %}
+
 {% block body_content %}
-    <h1>Home Page</h1>
-    <p>Welcome to this web app!</p>
+<h1>{{ title }}</h1>
+<p>Welcome to this web app!</p>
+{% if songs %}
+    {% for song in songs %}
+        <div>
+            <p>Title:<a href="{{ url_for('song', song_id=song.song_id) }}">{{ song.title }}</a> Artist: {{ song.artist }}  Album: {{ song.album }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>There are no songs to display</p>
+{% endif %}
         
 {% endblock %}
