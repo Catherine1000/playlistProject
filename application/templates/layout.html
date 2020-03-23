@@ -2,6 +2,22 @@
  <head>
      <title>{{ title }}</title>
 <style>
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -35,7 +51,7 @@ body {
  <body>
 <div class="topnav">
      <a href="{{ url_for('home') }}">Home</a>
-     <a href="{{ url_for('newsong') }}">New Song</a>
+     <a href="{{ url_for('newsong') }}">Create New Song</a>
      <a href="{{ url_for('playlists') }}">Playlists</a>
 </div>
      {% block body_content %}

@@ -1,14 +1,47 @@
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
 {% extends "layout.html" %}
 
 {% block body_content %}
 <h1>{{ title }}</h1>
-<p>Welcome to this web app!</p>
+<p>Welcome to Playlist Pro!</p>
+<p>Use the links above to create and manage your songs and playlists.</p>
+<h2>Features</h2>
+<ul>
+    <li><b>Create</b> - add new songs and playlists</li>
+    <li><b>Update</b> - edit your songs to keep them up to date (click on the song title)</li>
+    <li><b>Delete</b> - delete playlists to remove them from your library (click on the song title)</li>
+</ul>
+
 {% if songs %}
+    <br>
+    <h2>My songs:</h2>
+    <table>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Album</th>
+        </tr>
+        
     {% for song in songs %}
-        <div>
-            <p>Title:<a href="{{ url_for('song', song_id=song.song_id) }}">{{ song.title }}</a> Artist: {{ song.artist }}  Album: {{ song.album }}</p>
-        </div>
+    <tr>
+        <td><a href="{{ url_for('song', song_id=song.song_id) }}">{{ song.title }}</a></td>
+        <td>{{ song.artist }}</td>
+        <td>{{ song.album }}</td>
+    </tr>
     {% endfor %}
+    </table>
 {% else %}
     <p>There are no songs to display</p>
 {% endif %}

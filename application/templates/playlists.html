@@ -1,14 +1,36 @@
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+
 {% extends "layout.html" %}
 
 {% block body_content %}
 <h1>{{ title }}</h1>
 {% if playlists %}
+    <table>
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Song</th>
+        </tr>
     {% for playlist in playlists %}
-        <div>
-            <p><b>Title:</b><a href="{{ url_for('playlist', playlist_id=playlist.playlist_id) }}">{{ playlist.title }}</a> <b>Genre:</b> {{ playlist.genre }}</p>
-            <p>Song: {{ playlist.track.title }}</p>
-        </div>
+        <tr>
+            <td><a href="{{ url_for('playlist', playlist_id=playlist.playlist_id) }}">{{ playlist.title }}</a></td>
+            <td>{{ playlist.genre }}</td>
+            <td>{{ playlist.track.title }}</td>
+        </tr>
     {% endfor %}
+    </table>
 {% else %}
     <p>There are no playlists to display</p>
 {% endif %}
