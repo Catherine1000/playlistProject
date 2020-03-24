@@ -23,7 +23,7 @@ I originally decided to create a many to many relationship, which would allow us
 
 ![](/DocImages/OneToMany.jpg)
 
-The diagram above shows the relationship for the final application. I had difficulties with allowing users to add many songs in a single playlist, therefore I revised the initial tables and changed the relationship to one to many.
+The diagram above shows the relationship for the final application. I had difficulties with allowing users to add many songs in a single playlist, therefore I revised the initial tables and changed the relationship to one to many. This has unfortunately limited the user to only adding one song per playlist. However, in order to create an MVP, I felt it was necessary to make the change and improve the feature later if I had time.
 
 
 ## Project Tracking
