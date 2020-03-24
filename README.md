@@ -54,3 +54,5 @@ Currently my web application only allows users to add one song per playlist. Thi
 I would like to incorporate a feature where users can click a button to add a song and another button to remove songs.
 
 In further sprints I would add a user login feature to make the web application more personal and secure for each user.
+
+**Catherine Wilson**
