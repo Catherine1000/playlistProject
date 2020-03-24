@@ -15,7 +15,7 @@ The user also has the option to update and view songs, and also delete playlists
 
 **Initial Plan**
 
-![](/DocImages/ManyToMany.jpg)
+![](/DocImages/ManyToManyERD.jpg)
 
 I originally decided to create a many to many relationship, which would allow users to create many songs and also many playlists containing many songs.
 
