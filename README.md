@@ -12,7 +12,7 @@ For my project I have created a web application that allows a user to create son
 
 
 ## **ERDs (Entity Relationship Diagrams)**
-Initial Plan
+### Initial Plan
 
 I originally decided to create a many to many relationship, which would allow users to create many songs and also many playlists containing many songs.
 
